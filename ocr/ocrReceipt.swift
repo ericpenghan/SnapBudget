@@ -66,10 +66,32 @@ func isDigit(char: Character) -> Bool {
   }
 }
 
+extension Dictionary {
+    func percentEscaped() -> String {
+        return map { (key, value) in
+            let escapedKey = "\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
+            let escapedValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
+            return escapedKey + "=" + escapedValue
+        }
+        .joined(separator: "&")
+    }
+}
+
+extension CharacterSet { 
+    static let urlQueryValueAllowed: CharacterSet = {
+        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let subDelimitersToEncode = "!$&'()*+,;="
+
+        var allowed = CharacterSet.urlQueryAllowed
+        allowed.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
+        return allowed
+    }()
+}
+
 let _apiKey = "f0d82f3f1a88957"
 let _url = "https://raw.githubusercontent.com/JarrenTay/test/master/receipt0_0.jpg"
 
-func callOCRSpace(apiKey: String, url: String) {
+func callOCRSpace(apiKey: String, photoUrl: String) {
     var estimatedTotal = 0.0
     var date = ""
     var company = ""
@@ -78,9 +100,32 @@ func callOCRSpace(apiKey: String, url: String) {
     // The OCR API is located here: https://ocr.space/ocrapi
     // Overlay describes the position of a line of words, what that line of words is composed of, and how many lines.
     // Reference json/receipt0_0_Overlay.json for an example output of the api
-    let url = URL(string: "https://api.ocr.space/parse/imageurl?apikey=" + apiKey + "&url=" + url + "&isoverlayrequired=true")!
-    var request = URLRequest(url: url)
-    request.httpMethod = "GET"
+    let apiUrl = URL(string: "https://api.ocr.space/parse/image")!
+    var request = URLRequest(url: apiUrl)
+    /*
+    //Use image name from bundle to create NSData
+    let image : UIImage = UIImage(named:"imageNameHere")!
+    //Now use image to create into NSData format
+    let imageData:NSData = UIImagePNGRepresentation(image)!
+
+    //OR next possibility
+    */
+    //Use image's path to create NSData
+    /*
+    let url:NSURL = NSURL(string : photoUrl)!
+    //Now use image to create into NSData format
+    let imageData:NSData = NSData.init(contentsOfURL: url)!
+    let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+    */
+    let parameters: [String: Any] = [
+      "isOverlayRequired": true,
+      "url": photoUrl,
+      "filetype": "jpg"
+    ]
+    request.httpBody = parameters.percentEscaped().data(using: .utf8)
+    request.setValue(apiKey, forHTTPHeaderField: "apikey")
+    request.httpMethod = "POST"
+    URLSession.shared.dataTask(with: request) { data, response, error in }
 
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         guard let data = data, error == nil else {
@@ -89,11 +134,15 @@ func callOCRSpace(apiKey: String, url: String) {
         }
         // totalList describes the prices that are in the same y-position as a line that contains "total" or "balance" but not "subtotal" or "saving"
         // Prices lower on the receipt are scored higher because it's probably more likely to be the value we are interested in.
+        let str = String(decoding: data, as: UTF8.self)
+        print(str)
+        print(error as Any)
         var totalList: [TotalScores] = []
         do {
+            print("A")
             // Interpret API output
             let product = try decoder.decode(OcrData.self, from: data)
-
+            print(product)
             // lineList is a list of Line objects, reduces the amount of information we're working with because I didn't think it was necessary?
             // Maybe we don't have to make a lineList.
             var lineList: [Line] = []
