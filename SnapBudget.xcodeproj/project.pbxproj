@@ -8,6 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		07084DE9233FE9510099F9D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07084DE8233FE9510099F9D3 /* GoogleService-Info.plist */; };
+		0740FA7723400218009A4E61 /* ocrReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0740FA6223400218009A4E61 /* ocrReceipt.swift */; };
+		0740FA7823400218009A4E61 /* receipt0_0_Overlay.json in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6423400218009A4E61 /* receipt0_0_Overlay.json */; };
+		0740FA7923400218009A4E61 /* receipt0_0.json in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6523400218009A4E61 /* receipt0_0.json */; };
+		0740FA7A23400218009A4E61 /* receipt2_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6823400218009A4E61 /* receipt2_0.jpg */; };
+		0740FA7B23400218009A4E61 /* receipt0_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6923400218009A4E61 /* receipt0_0.jpg */; };
+		0740FA7C23400218009A4E61 /* receipt0_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6A23400218009A4E61 /* receipt0_1.jpg */; };
+		0740FA7D23400218009A4E61 /* receipt4_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6B23400218009A4E61 /* receipt4_0.jpg */; };
+		0740FA7E23400218009A4E61 /* receipt5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6C23400218009A4E61 /* receipt5.jpg */; };
+		0740FA7F23400218009A4E61 /* receipt1_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6D23400218009A4E61 /* receipt1_0.jpg */; };
+		0740FA8023400218009A4E61 /* receipt4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6E23400218009A4E61 /* receipt4.jpg */; };
+		0740FA8123400218009A4E61 /* receipt3_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA6F23400218009A4E61 /* receipt3_0.jpg */; };
+		0740FA8223400218009A4E61 /* receipt3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA7023400218009A4E61 /* receipt3.jpg */; };
+		0740FA8323400218009A4E61 /* receipt2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA7123400218009A4E61 /* receipt2.jpg */; };
+		0740FA8423400218009A4E61 /* receipt0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA7223400218009A4E61 /* receipt0.jpg */; };
+		0740FA8523400218009A4E61 /* receipt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA7323400218009A4E61 /* receipt1.jpg */; };
+		0740FA8623400218009A4E61 /* receipt5_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA7423400218009A4E61 /* receipt5_0.png */; };
+		0740FA8723400218009A4E61 /* receipt5_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0740FA7523400218009A4E61 /* receipt5_0.jpg */; };
 		07F433DE233F02B100F1281E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F433DD233F02B100F1281E /* AppDelegate.swift */; };
 		07F433E0233F02B100F1281E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F433DF233F02B100F1281E /* ViewController.swift */; };
 		07F433E3233F02B100F1281E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F433E1233F02B100F1281E /* Main.storyboard */; };
@@ -19,6 +36,23 @@
 
 /* Begin PBXFileReference section */
 		07084DE8233FE9510099F9D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0740FA6223400218009A4E61 /* ocrReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ocrReceipt.swift; sourceTree = "<group>"; };
+		0740FA6423400218009A4E61 /* receipt0_0_Overlay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = receipt0_0_Overlay.json; sourceTree = "<group>"; };
+		0740FA6523400218009A4E61 /* receipt0_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = receipt0_0.json; sourceTree = "<group>"; };
+		0740FA6823400218009A4E61 /* receipt2_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt2_0.jpg; sourceTree = "<group>"; };
+		0740FA6923400218009A4E61 /* receipt0_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt0_0.jpg; sourceTree = "<group>"; };
+		0740FA6A23400218009A4E61 /* receipt0_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt0_1.jpg; sourceTree = "<group>"; };
+		0740FA6B23400218009A4E61 /* receipt4_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt4_0.jpg; sourceTree = "<group>"; };
+		0740FA6C23400218009A4E61 /* receipt5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt5.jpg; sourceTree = "<group>"; };
+		0740FA6D23400218009A4E61 /* receipt1_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt1_0.jpg; sourceTree = "<group>"; };
+		0740FA6E23400218009A4E61 /* receipt4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt4.jpg; sourceTree = "<group>"; };
+		0740FA6F23400218009A4E61 /* receipt3_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt3_0.jpg; sourceTree = "<group>"; };
+		0740FA7023400218009A4E61 /* receipt3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt3.jpg; sourceTree = "<group>"; };
+		0740FA7123400218009A4E61 /* receipt2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt2.jpg; sourceTree = "<group>"; };
+		0740FA7223400218009A4E61 /* receipt0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt0.jpg; sourceTree = "<group>"; };
+		0740FA7323400218009A4E61 /* receipt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt1.jpg; sourceTree = "<group>"; };
+		0740FA7423400218009A4E61 /* receipt5_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = receipt5_0.png; sourceTree = "<group>"; };
+		0740FA7523400218009A4E61 /* receipt5_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receipt5_0.jpg; sourceTree = "<group>"; };
 		07F433DA233F02B100F1281E /* SnapBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F433DD233F02B100F1281E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F433DF233F02B100F1281E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,9 +78,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0740FA6123400218009A4E61 /* ocr */ = {
+			isa = PBXGroup;
+			children = (
+				0740FA6223400218009A4E61 /* ocrReceipt.swift */,
+				0740FA6323400218009A4E61 /* json */,
+				0740FA6623400218009A4E61 /* SwiftOCR */,
+				0740FA6723400218009A4E61 /* examples */,
+			);
+			path = ocr;
+			sourceTree = "<group>";
+		};
+		0740FA6323400218009A4E61 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				0740FA6423400218009A4E61 /* receipt0_0_Overlay.json */,
+				0740FA6523400218009A4E61 /* receipt0_0.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		0740FA6623400218009A4E61 /* SwiftOCR */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftOCR;
+			sourceTree = "<group>";
+		};
+		0740FA6723400218009A4E61 /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				0740FA6823400218009A4E61 /* receipt2_0.jpg */,
+				0740FA6923400218009A4E61 /* receipt0_0.jpg */,
+				0740FA6A23400218009A4E61 /* receipt0_1.jpg */,
+				0740FA6B23400218009A4E61 /* receipt4_0.jpg */,
+				0740FA6C23400218009A4E61 /* receipt5.jpg */,
+				0740FA6D23400218009A4E61 /* receipt1_0.jpg */,
+				0740FA6E23400218009A4E61 /* receipt4.jpg */,
+				0740FA6F23400218009A4E61 /* receipt3_0.jpg */,
+				0740FA7023400218009A4E61 /* receipt3.jpg */,
+				0740FA7123400218009A4E61 /* receipt2.jpg */,
+				0740FA7223400218009A4E61 /* receipt0.jpg */,
+				0740FA7323400218009A4E61 /* receipt1.jpg */,
+				0740FA7423400218009A4E61 /* receipt5_0.png */,
+				0740FA7523400218009A4E61 /* receipt5_0.jpg */,
+			);
+			path = examples;
+			sourceTree = "<group>";
+		};
 		07F433D1233F02B100F1281E = {
 			isa = PBXGroup;
 			children = (
+				0740FA6123400218009A4E61 /* ocr */,
 				07F433DC233F02B100F1281E /* SnapBudget */,
 				07F433DB233F02B100F1281E /* Products */,
 				0D5030A8DE5892DC1F2CB7DA /* Pods */,
@@ -154,10 +237,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0740FA8523400218009A4E61 /* receipt1.jpg in Resources */,
+				0740FA8723400218009A4E61 /* receipt5_0.jpg in Resources */,
+				0740FA7B23400218009A4E61 /* receipt0_0.jpg in Resources */,
+				0740FA7F23400218009A4E61 /* receipt1_0.jpg in Resources */,
 				07F433E8233F02B100F1281E /* LaunchScreen.storyboard in Resources */,
+				0740FA7823400218009A4E61 /* receipt0_0_Overlay.json in Resources */,
+				0740FA7C23400218009A4E61 /* receipt0_1.jpg in Resources */,
+				0740FA7A23400218009A4E61 /* receipt2_0.jpg in Resources */,
 				07084DE9233FE9510099F9D3 /* GoogleService-Info.plist in Resources */,
+				0740FA7D23400218009A4E61 /* receipt4_0.jpg in Resources */,
+				0740FA8423400218009A4E61 /* receipt0.jpg in Resources */,
 				07F433F0233F767800F1281E /* Assets.xcassets in Resources */,
+				0740FA8323400218009A4E61 /* receipt2.jpg in Resources */,
+				0740FA8223400218009A4E61 /* receipt3.jpg in Resources */,
+				0740FA7E23400218009A4E61 /* receipt5.jpg in Resources */,
+				0740FA7923400218009A4E61 /* receipt0_0.json in Resources */,
+				0740FA8123400218009A4E61 /* receipt3_0.jpg in Resources */,
 				07F433E3233F02B100F1281E /* Main.storyboard in Resources */,
+				0740FA8623400218009A4E61 /* receipt5_0.png in Resources */,
+				0740FA8023400218009A4E61 /* receipt4.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +312,7 @@
 				07F433F2233FCD4A00F1281E /* RecipetClass.swift in Sources */,
 				07F433E0233F02B100F1281E /* ViewController.swift in Sources */,
 				07F433DE233F02B100F1281E /* AppDelegate.swift in Sources */,
+				0740FA7723400218009A4E61 /* ocrReceipt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
