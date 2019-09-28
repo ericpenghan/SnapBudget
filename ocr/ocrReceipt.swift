@@ -72,6 +72,7 @@ let _url = "https://raw.githubusercontent.com/JarrenTay/test/master/receipt5_0.j
 func callOCRSpace(apiKey: String, url: String) {
     // prepare json data
     var estimatedTotal = 0.0
+    var date = ""
 
     // create get request
     let url = URL(string: "https://api.ocr.space/parse/imageurl?apikey=" + apiKey + "&url=" + url + "&isoverlayrequired=true")!
@@ -94,6 +95,42 @@ func callOCRSpace(apiKey: String, url: String) {
                 if((lineSimp.contains("total") || lineSimp.contains("balance")) && !lineSimp.contains("subtotal") && !lineSimp.contains("saving")) {
                     totalTopList.append(line.MinTop)
                 }
+                if (date == "") {
+                    if (lineSimp.range(of: "^.*[0-9][0-9]*\\/[0-9][0-9]*\\/[0-9][0-9][0-9]*.*$", options: .regularExpression, range: nil, locale: nil) != nil) {
+                        let lineSimpArr = lineSimp.components(separatedBy: "/")
+                        let lineSimp1 = lineSimpArr[0]
+                        let lineSimp2 = lineSimpArr[1]
+                        let lineSimp3 = lineSimpArr[2]
+                        var date1 = ""
+                        var date2 = ""
+                        var date3 = ""
+                        if lineSimp1.count >= 2 {
+                          date1 = String(lineSimp1.suffix(2))
+                          if (lineSimp.range(of: "^.*[0-9][0-9]$", options: .regularExpression, range: nil, locale: nil) == nil) {
+                            date1 = String(lineSimp1.suffix(1))
+                          }
+                        } else {
+                          date1 = lineSimp1
+                        }
+                        if (lineSimp2.count == 2 || lineSimp2.count == 1) {
+                          date2 = lineSimp2
+                        } else {
+                          date = "ERROR"
+                        }
+                        if lineSimp3.count >= 2 {
+                          date3 = String(lineSimp3.prefix(2))
+                          if (lineSimp.range(of: "^[0-9][0-9].*$", options: .regularExpression, range: nil, locale: nil) == nil) {
+                            date3 = String(lineSimp3.prefix(1))
+                          }
+                        } else {
+                          date = "ERROR"
+                        }
+                        if date != "ERROR" {
+                          date = date1 + "/" + date2 + "/" + date3
+                        }
+                    }
+                }
+
             }
             print(totalTopList)
             lineList = lineList.sorted(by: { $0.top > $1.top })
@@ -121,6 +158,7 @@ func callOCRSpace(apiKey: String, url: String) {
             }
         }
       print("Total: " + String(estimatedTotal))
+      print("Date: " + date)
     }
     task.resume()
 }
