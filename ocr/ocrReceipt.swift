@@ -135,14 +135,10 @@ func callOCRSpace(apiKey: String, photoUrl: String) {
         // totalList describes the prices that are in the same y-position as a line that contains "total" or "balance" but not "subtotal" or "saving"
         // Prices lower on the receipt are scored higher because it's probably more likely to be the value we are interested in.
         let str = String(decoding: data, as: UTF8.self)
-        print(str)
-        print(error as Any)
         var totalList: [TotalScores] = []
         do {
-            print("A")
             // Interpret API output
             let product = try decoder.decode(OcrData.self, from: data)
-            print(product)
             // lineList is a list of Line objects, reduces the amount of information we're working with because I didn't think it was necessary?
             // Maybe we don't have to make a lineList.
             var lineList: [Line] = []
