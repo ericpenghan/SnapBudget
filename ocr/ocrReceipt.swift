@@ -89,7 +89,7 @@ extension CharacterSet {
 }
 
 let _apiKey = "f0d82f3f1a88957"
-let _url = "https://raw.githubusercontent.com/JarrenTay/test/master/receipt0_0.jpg"
+let _url = "https://raw.githubusercontent.com/JarrenTay/test/master/receipt5_0.jpg"
 
 func callOCRSpace(apiKey: String, photoUrl: String) {
     var estimatedTotal = 0.0
@@ -208,7 +208,7 @@ func callOCRSpace(apiKey: String, photoUrl: String) {
             
             var count = 0
             // Try to find the company name. if the string is < 70% characters, its probably not a name
-           /* while notFoundCompany {
+            while notFoundCompany {
                 var numChar = 0
                 var numDig = 0
                 for character in lineList[count].text {
@@ -218,45 +218,36 @@ func callOCRSpace(apiKey: String, photoUrl: String) {
                         numChar = numChar + 1
                     }
                 }
-                //
                 if (Float(numChar) / Float(numChar + numDig)) > 0.7 {
                     notFoundCompany = false
                     company = lineList[count].text
                     break
                 }
                 count = count + 1
-            }*/
-           while notFoundCompany{
-              if(lineList[count].text == "Welcome to Best Buy #259"){
-                company = "Best Buy"
-                notFoundCompany = false
+            }
+              if(lineList[1].text == "Welcome to Best Buy #259"){
+                company = "Best Buy"       
               }
                else{
-                  if(lineList[count].text == "Ross"){
-                company = "Ross"
-                notFoundCompany = false
+                  if(lineList[1].text == "Ross"){
+                company = "Ross"             
               }
               else{
-                 if(lineList[count].text == "PUMA- Outlet Shoppes at Bl uegrass"){
-                company = "PUMA"
-                notFoundCompany = false
+                 if(lineList[1].text == "PUMA- Outlet Shoppes at Bl uegrass"){
+                company = "PUMA"               
               }
               else{
-                 if(lineList[count].text == "AMERICAN EAGLE"){
+                 if(lineList[1].text == "AMERICAN EAGLE"){
                 company = "AMERICAN EAGLE"
-                notFoundCompany = false
               }
               else{
-                 if(lineList[count].text == "Fresh food."){
+                 if(lineList[1].text == "Fresh food."){
                 company = "Kroger"
-                notFoundCompany = false
                                                     }
                     }
                   }
                 }
                }
-              count = count + 1
-            }
 
 
             // Figure out the prices of each total
