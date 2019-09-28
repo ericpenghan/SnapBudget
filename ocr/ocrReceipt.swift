@@ -73,6 +73,7 @@ func callOCRSpace(apiKey: String, url: String) {
     // prepare json data
     var estimatedTotal = 0.0
     var date = ""
+    var company = ""
 
     // create get request
     let url = URL(string: "https://api.ocr.space/parse/imageurl?apikey=" + apiKey + "&url=" + url + "&isoverlayrequired=true")!
@@ -133,7 +134,28 @@ func callOCRSpace(apiKey: String, url: String) {
 
             }
             print(totalTopList)
-            lineList = lineList.sorted(by: { $0.top > $1.top })
+            lineList = lineList.sorted(by: { $0.top < $1.top })
+            var notFoundCompany = true
+            var count = 0
+            while notFoundCompany {
+                var numChar = 0
+                var numDig = 0
+                for character in lineList[count].text {
+                    if isDigit(char: character) {
+                        numDig = numDig + 1
+                    } else {
+                        numChar = numChar + 1
+                    }
+                }
+                print(Float(numChar) / Float(numChar + numDig))
+                if (Float(numChar) / Float(numChar + numDig)) > 0.7 {
+                    notFoundCompany = true
+                    company = lineList[count].text
+                    break
+                }
+                count = count + 1
+            }
+
             for total in totalTopList {
                 for line in lineList {
                     if(abs(line.top - total) < 20) {
@@ -159,6 +181,7 @@ func callOCRSpace(apiKey: String, url: String) {
         }
       print("Total: " + String(estimatedTotal))
       print("Date: " + date)
+      print("Company: " + company)
     }
     task.resume()
 }
