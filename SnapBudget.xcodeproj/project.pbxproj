@@ -3,25 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07084DE9233FE9510099F9D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07084DE8233FE9510099F9D3 /* GoogleService-Info.plist */; };
 		07F433DE233F02B100F1281E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F433DD233F02B100F1281E /* AppDelegate.swift */; };
 		07F433E0233F02B100F1281E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F433DF233F02B100F1281E /* ViewController.swift */; };
 		07F433E3233F02B100F1281E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F433E1233F02B100F1281E /* Main.storyboard */; };
-		07F433E5233F02B100F1281E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F433E4233F02B100F1281E /* Assets.xcassets */; };
 		07F433E8233F02B100F1281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F433E6233F02B100F1281E /* LaunchScreen.storyboard */; };
+		07F433F0233F767800F1281E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F433EF233F767800F1281E /* Assets.xcassets */; };
+		07F433F2233FCD4A00F1281E /* RecipetClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F433F1233FCD4A00F1281E /* RecipetClass.swift */; };
+		9392E06DF93DE203620D7A5D /* Pods_SnapBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4C87868410908A3E041A9EE /* Pods_SnapBudget.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07084DE8233FE9510099F9D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		07F433DA233F02B100F1281E /* SnapBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F433DD233F02B100F1281E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F433DF233F02B100F1281E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		07F433E2233F02B100F1281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		07F433E4233F02B100F1281E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07F433E7233F02B100F1281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07F433E9233F02B100F1281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07F433EF233F767800F1281E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07F433F1233FCD4A00F1281E /* RecipetClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipetClass.swift; sourceTree = "<group>"; };
+		B473DE3FB572D39F805CAC64 /* Pods-SnapBudget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapBudget.debug.xcconfig"; path = "Target Support Files/Pods-SnapBudget/Pods-SnapBudget.debug.xcconfig"; sourceTree = "<group>"; };
+		F4C87868410908A3E041A9EE /* Pods_SnapBudget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapBudget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F985FAAF6436A15B9821E1EE /* Pods-SnapBudget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapBudget.release.xcconfig"; path = "Target Support Files/Pods-SnapBudget/Pods-SnapBudget.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9392E06DF93DE203620D7A5D /* Pods_SnapBudget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,8 @@
 			children = (
 				07F433DC233F02B100F1281E /* SnapBudget */,
 				07F433DB233F02B100F1281E /* Products */,
+				0D5030A8DE5892DC1F2CB7DA /* Pods */,
+				DEC05B9FA5B248ACD454B117 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +65,33 @@
 		07F433DC233F02B100F1281E /* SnapBudget */ = {
 			isa = PBXGroup;
 			children = (
+				07F433EF233F767800F1281E /* Assets.xcassets */,
 				07F433DD233F02B100F1281E /* AppDelegate.swift */,
 				07F433DF233F02B100F1281E /* ViewController.swift */,
 				07F433E1233F02B100F1281E /* Main.storyboard */,
-				07F433E4233F02B100F1281E /* Assets.xcassets */,
 				07F433E6233F02B100F1281E /* LaunchScreen.storyboard */,
+				07084DE8233FE9510099F9D3 /* GoogleService-Info.plist */,
 				07F433E9233F02B100F1281E /* Info.plist */,
+				07F433F1233FCD4A00F1281E /* RecipetClass.swift */,
 			);
 			path = SnapBudget;
+			sourceTree = "<group>";
+		};
+		0D5030A8DE5892DC1F2CB7DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B473DE3FB572D39F805CAC64 /* Pods-SnapBudget.debug.xcconfig */,
+				F985FAAF6436A15B9821E1EE /* Pods-SnapBudget.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DEC05B9FA5B248ACD454B117 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4C87868410908A3E041A9EE /* Pods_SnapBudget.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07F433EC233F02B100F1281E /* Build configuration list for PBXNativeTarget "SnapBudget" */;
 			buildPhases = (
+				96B61E843EC6EE5AB182B95D /* [CP] Check Pods Manifest.lock */,
 				07F433D6233F02B100F1281E /* Sources */,
 				07F433D7233F02B100F1281E /* Frameworks */,
 				07F433D8233F02B100F1281E /* Resources */,
+				5DF1D37306AD1B967733EB34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,18 +155,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				07F433E8233F02B100F1281E /* LaunchScreen.storyboard in Resources */,
-				07F433E5233F02B100F1281E /* Assets.xcassets in Resources */,
+				07084DE9233FE9510099F9D3 /* GoogleService-Info.plist in Resources */,
+				07F433F0233F767800F1281E /* Assets.xcassets in Resources */,
 				07F433E3233F02B100F1281E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5DF1D37306AD1B967733EB34 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapBudget/Pods-SnapBudget-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapBudget/Pods-SnapBudget-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SnapBudget/Pods-SnapBudget-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96B61E843EC6EE5AB182B95D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SnapBudget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		07F433D6233F02B100F1281E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07F433F2233FCD4A00F1281E /* RecipetClass.swift in Sources */,
 				07F433E0233F02B100F1281E /* ViewController.swift in Sources */,
 				07F433DE233F02B100F1281E /* AppDelegate.swift in Sources */,
 			);
@@ -280,6 +356,7 @@
 		};
 		07F433ED233F02B100F1281E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B473DE3FB572D39F805CAC64 /* Pods-SnapBudget.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +375,7 @@
 		};
 		07F433EE233F02B100F1281E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F985FAAF6436A15B9821E1EE /* Pods-SnapBudget.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

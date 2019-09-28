@@ -1,0 +1,6 @@
+framework module Pods_SnapBudget {
+  umbrella header "Pods-SnapBudget-umbrella.h"
+
+  export *
+  module * { export * }
+}
