@@ -137,9 +137,9 @@ func callOCRSpace(apiKey: String, url: String) {
                           date = "ERROR"
                         }
                         if lineSimp3.count >= 2 {
-                          date3 = String(lineSimp3.prefix(2))
+                          date3 = String(lineSimp3.suffix(2))
                           if (lineSimp.range(of: "^[0-9][0-9].*$", options: .regularExpression, range: nil, locale: nil) == nil) {
-                            date3 = String(lineSimp3.prefix(1))
+                            date3 = String("1"+lineSimp3.suffix(1))
                           }
                         } else {
                           // If there are less than 2 numbers to the left of the right /, we are in trouble 
