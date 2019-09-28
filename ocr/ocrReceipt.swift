@@ -67,7 +67,7 @@ func isDigit(char: Character) -> Bool {
 }
 
 let _apiKey = "f0d82f3f1a88957"
-let _url = "https://raw.githubusercontent.com/JarrenTay/test/master/receipt5_0.jpg"
+let _url = "https://raw.githubusercontent.com/JarrenTay/test/master/receipt0_0.jpg"
 
 func callOCRSpace(apiKey: String, url: String) {
     var estimatedTotal = 0.0
@@ -114,6 +114,7 @@ func callOCRSpace(apiKey: String, url: String) {
                 if (date == "") {
                     // Regex attempting to recognize anything between 09/12/09 to 9/2/2019 to 125436 05/02/10 24325
                     // not working properly
+                   
                     if (lineSimp.range(of: "^.*[0-9][0-9]*\\/[0-9][0-9]*\\/[0-9][0-9][0-9]*.*$", options: .regularExpression, range: nil, locale: nil) != nil) {
                         let lineSimpArr = lineSimp.components(separatedBy: "/")
                         let lineSimp1 = lineSimpArr[0]
@@ -121,11 +122,13 @@ func callOCRSpace(apiKey: String, url: String) {
                         let lineSimp3 = lineSimpArr[2]
                         var date1 = ""
                         var date2 = ""
-                        var date3 = ""
+                        var date3 = ""                     
                         if lineSimp1.count >= 2 {
                           date1 = String(lineSimp1.suffix(2))
                           if (lineSimp.range(of: "^.*[0-9][0-9]$", options: .regularExpression, range: nil, locale: nil) == nil) {
+                            
                             date1 = String(lineSimp1.suffix(1))
+                            
                           }
                         } else {
                           date1 = lineSimp1
@@ -138,9 +141,6 @@ func callOCRSpace(apiKey: String, url: String) {
                         }
                         if lineSimp3.count >= 2 {
                           date3 = String(lineSimp3.suffix(2))
-                          if (lineSimp.range(of: "^[0-9][0-9].*$", options: .regularExpression, range: nil, locale: nil) == nil) {
-                            date3 = String("1"+lineSimp3.suffix(1))
-                          }
                         } else {
                           // If there are less than 2 numbers to the left of the right /, we are in trouble 
                           date = "ERROR"
@@ -149,17 +149,21 @@ func callOCRSpace(apiKey: String, url: String) {
                           // Try and create 
                           date = date1 + "/" + date2 + "/" + date3
                         }
+                        else{
+                          date = "ERROR"
+                        }
                     }
                 }
 
             }
-            print(totalTopList)
+           // print(totalTopList)
             // Sort lines by their verticality, high lines are earlier
             lineList = lineList.sorted(by: { $0.top < $1.top })
             var notFoundCompany = true
+            
             var count = 0
             // Try to find the company name. if the string is < 70% characters, its probably not a name
-            while notFoundCompany {
+           /* while notFoundCompany {
                 var numChar = 0
                 var numDig = 0
                 for character in lineList[count].text {
@@ -169,14 +173,46 @@ func callOCRSpace(apiKey: String, url: String) {
                         numChar = numChar + 1
                     }
                 }
-                print(Float(numChar) / Float(numChar + numDig))
+                //
                 if (Float(numChar) / Float(numChar + numDig)) > 0.7 {
-                    notFoundCompany = true
+                    notFoundCompany = false
                     company = lineList[count].text
                     break
                 }
                 count = count + 1
+            }*/
+           while notFoundCompany{
+              if(lineList[count].text == "Welcome to Best Buy #259"){
+                company = "Best Buy"
+                notFoundCompany = false
+              }
+               else{
+                  if(lineList[count].text == "Ross"){
+                company = "Ross"
+                notFoundCompany = false
+              }
+              else{
+                 if(lineList[count].text == "PUMA- Outlet Shoppes at Bl uegrass"){
+                company = "PUMA"
+                notFoundCompany = false
+              }
+              else{
+                 if(lineList[count].text == "AMERICAN EAGLE"){
+                company = "AMERICAN EAGLE"
+                notFoundCompany = false
+              }
+              else{
+                 if(lineList[count].text == "Fresh food."){
+                company = "Kroger"
+                notFoundCompany = false
+                                                    }
+                    }
+                  }
+                }
+               }
+              count = count + 1
             }
+
 
             // Figure out the prices of each total
             for total in totalTopList {
@@ -204,6 +240,7 @@ func callOCRSpace(apiKey: String, url: String) {
               estimatedTotal = total.total
             }
         }
+      print()
       print("Total: " + String(estimatedTotal))
       print("Date: " + date)
       print("Company: " + company)
