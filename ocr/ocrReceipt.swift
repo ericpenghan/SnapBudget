@@ -148,6 +148,15 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
     request.setValue(apiKey, forHTTPHeaderField: "apikey")
     request.httpMethod = "POST"
     let requestResponse = URLSession.shared.synchronousDataTask(with: request)
+    if requestResponse.0 != nil {
+        print(String(decoding: requestResponse.0!, as: UTF8.self))
+    }
+    if requestResponse.1 != nil {
+        print(requestResponse.1!)
+    }
+    if requestResponse.2 != nil {
+        print(requestResponse.2!)
+    }
     let data = requestResponse.0!
 
     // totalList describes the prices that are in the same y-position as a line that contains "total" or "balance" but not "subtotal" or "saving"
