@@ -212,7 +212,7 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
                         date = "ERROR"
                     }
                     if lineSimp3.count >= 2 {
-                        date3 = String(lineSimp3.suffix(2))
+                        date3 = String(lineSimp3.prefix(2))
                     } else {
                         // If there are less than 2 numbers to the left of the right /, we are in trouble 
                         date = "ERROR"
