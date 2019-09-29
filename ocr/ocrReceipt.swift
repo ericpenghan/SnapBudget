@@ -148,6 +148,7 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
     request.setValue(apiKey, forHTTPHeaderField: "apikey")
     request.httpMethod = "POST"
     let requestResponse = URLSession.shared.synchronousDataTask(with: request)
+    /*
     if requestResponse.0 != nil {
         print(String(decoding: requestResponse.0!, as: UTF8.self))
     }
@@ -157,6 +158,7 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
     if requestResponse.2 != nil {
         print(requestResponse.2!)
     }
+    */
     let data = requestResponse.0!
 
     // totalList describes the prices that are in the same y-position as a line that contains "total" or "balance" but not "subtotal" or "saving"
@@ -248,19 +250,20 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
             }
             count = count + 1
         }
-        if (lineList[1].text == "Welcome to Best Buy #259") {
+        if (lineList[0].text == "Welcome to Best Buy #259") {
             company = "Best Buy"       
-        } else if (lineList[1].text == "Ross") {
+        } else if (lineList[0].text == "Ross") {
             company = "Ross"             
-        } else if (lineList[1].text == "PUMA- Outlet Shoppes at Bl uegrass") {
+        } else if (lineList[0].text == "PUMA- Outlet Shoppes at Bl uegrass") {
             company = "PUMA"               
-        } else if (lineList[1].text == "AMERICAN EAGLE") {
+        } else if (lineList[0].text == "AMERICAN EAGLE") {
             company = "AMERICAN EAGLE"
-        } else if (lineList[1].text == "Fresh food.") {
+        } else if (lineList[0].text == "Fresh food.") {
             company = "Kroger"
         }
 
         // Figure out the prices of each total
+        print(totalTopList)
         for total in totalTopList {
             for line in lineList {
                 if(abs(line.top - total) < 20) {
@@ -275,6 +278,7 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
                 }
             }
         }
+        print(totalList)
     } catch {
         print("error")
     }
