@@ -67,13 +67,56 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="bJc-Pk-YhY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" translatesAutoresizingMaskIntoConstraints="NO" id="UqX-jk-jHi">
-                                <rect key="frame" x="0.0" y="36" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="9Td-wt-g7z">
+                                <rect key="frame" x="151" y="231.5" width="73" height="204"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTb-Sk-Cj8">
+                                        <rect key="frame" x="0.0" y="0.0" width="73" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Recipt 1">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Fvy-Ts-5Tj" kind="modal" id="5NM-AP-lxr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wg-g9-sOk">
+                                        <rect key="frame" x="0.0" y="42" width="73" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Recipt 2">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jp-V0-DND">
+                                        <rect key="frame" x="0.0" y="84" width="73" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Recipt 3">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OK8-5b-I5O">
+                                        <rect key="frame" x="0.0" y="126" width="73" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Recipt 4">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qu1-AR-ppZ">
+                                        <rect key="frame" x="0.0" y="168" width="73" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Recipt 5">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-Od-epE">
-                                <rect key="frame" x="63" y="92" width="48" height="48"/>
+                                <rect key="frame" x="163" y="449" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Camra">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,14 +125,12 @@
                                     <action selector="takePic:" destination="3lq-Ta-Ekh" eventType="touchUpInside" id="f98-gR-HxO"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="noB-DB-ESS">
-                                <rect key="frame" x="82" y="223" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bJc-Pk-YhY" firstAttribute="top" secondItem="V2o-S9-tbf" secondAttribute="top" id="BfO-Mo-JQI"/>
+                            <constraint firstItem="9Td-wt-g7z" firstAttribute="centerX" secondItem="V2o-S9-tbf" secondAttribute="centerX" id="Eqk-eY-Rn0"/>
+                            <constraint firstItem="9Td-wt-g7z" firstAttribute="centerY" secondItem="V2o-S9-tbf" secondAttribute="centerY" id="Gz7-l1-puy"/>
                             <constraint firstAttribute="bottom" secondItem="bJc-Pk-YhY" secondAttribute="bottom" id="NlV-9W-fvW"/>
                             <constraint firstItem="bJc-Pk-YhY" firstAttribute="leading" secondItem="V2o-S9-tbf" secondAttribute="leading" id="SAJ-ck-ADL"/>
                             <constraint firstAttribute="trailing" secondItem="bJc-Pk-YhY" secondAttribute="trailing" id="i7t-VW-mzY"/>
@@ -97,30 +138,25 @@
                         <viewLayoutGuide key="safeArea" id="gGL-hn-NaA"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Recipt" image="ReciptMain" id="W8Z-cP-bmI"/>
-                    <connections>
-                        <outlet property="testoutputpic" destination="noB-DB-ESS" id="DoN-Pw-Mhh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLH-YE-6oj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="967" y="110"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="XGM-II-3fc">
+        <!--View Controller-->
+        <scene sceneID="Roy-YB-adT">
             <objects>
-                <viewController id="adq-hJ-hbR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="csv-hH-F3J">
+                <viewController id="Fvy-Ts-5Tj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Kk-xc-DK8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="BjV-y7-XHo"/>
+                        <viewLayoutGuide key="safeArea" id="rOF-Ke-bQd"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="brf-je-Djr"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0HS-YF-zbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hT-mV-PUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="793"/>
+            <point key="canvasLocation" x="1890" y="-278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dIc-8J-WbZ">

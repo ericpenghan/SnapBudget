@@ -29,7 +29,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
    
     
   }
-  @IBOutlet weak var testoutputpic: UIImageView!
+  
+  
+  
   
   
   //take a photo
@@ -72,15 +74,12 @@ extension ViewController
   
   //if user taken the pic
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    self.testoutputpic.image = info[.originalImage] as? UIImage
     
     
     //Use image name from bundle to create NSData
     let image : UIImage? = info[.originalImage] as? UIImage
-    //Now use image to create into NSData format
-    //let strBase64:String = (image.jpegData(compressionQuality: 0.7)!).base64EncodedString(options: .lineLength64Characters)
+   
     
-    //let strBase64 = imageData.base64EncodedString(options: )
     
     
     //random will create a random name for each uploaded pic
@@ -107,12 +106,6 @@ extension ViewController
         print(receiptData)
       
       })
-      
-      
-      
-      
-     
-      
     }
     
 
