@@ -8,8 +8,13 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
+import Firebase
 //make it global, so all storyboard can access to it 
 private var imagePicker: UIImagePickerController!
+
+
+
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {//last 2 UI classes will let you take pic and use the data
 
@@ -18,9 +23,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Do any additional setup after loading the view.
     
     //create a reference for data base
-    let ref = Database.database().reference()
+//    let ref = Database.database().reference()
+//    ref.child("someid/name").setValue("Mike")
     
-    ref.child("someid/name").setValue("Mike")
+   
+    
   }
   @IBOutlet weak var testoutputpic: UIImageView!
   
@@ -69,17 +76,46 @@ extension ViewController
     
     
     //Use image name from bundle to create NSData
-    let image : UIImage = info[.originalImage] as! UIImage
+    let image : UIImage? = info[.originalImage] as? UIImage
     //Now use image to create into NSData format
-    let strBase64:String = (image.jpegData(compressionQuality: 0.7)!).base64EncodedString(options: .lineLength64Characters)
+    //let strBase64:String = (image.jpegData(compressionQuality: 0.7)!).base64EncodedString(options: .lineLength64Characters)
     
     //let strBase64 = imageData.base64EncodedString(options: )
     
-   
     
- 
-    var receiptData = callOCRSpace(apiKey: "f0d82f3f1888957", photoString: strBase64, urlNot64: false)
-    print(receiptData)
+    //random will create a random name for each uploaded pic
+    let randomId = UUID.init().uuidString
+    //create an reference
+    let uploadRef = Storage.storage().reference(withPath: "memes/\(randomId).jpg")
+    //create a object
+    guard let imageData = image?.jpegData(compressionQuality: 0.3) else
+    { return }
+    //create megadata to specify the content type to jpak
+    let uploadMetadata = StorageMetadata.init()
+    uploadMetadata.contentType = "image/jpeg"
+    //start uplaoding file
+       var imageUrl = ""
+    uploadRef.putData(imageData, metadata: uploadMetadata){ (downloadMetadata, error) in
+      imageUrl = imageUrl + downloadMetadata!.bucket + downloadMetadata!.name!
+      print("yes")
+      print(imageUrl)
+      uploadRef.downloadURL(completion: { (URL
+        , Error) in
+        print("your download url is: \(URL!.absoluteString)")
+        imageUrl = URL!.absoluteString
+         var receiptData = callOCRSpace(apiKey: "f0d82f3f1888957", photoString: imageUrl, urlNot64: true)
+        print(receiptData)
+      
+      })
+      
+      
+      
+      
+     
+      
+    }
+    
+
   }
 }
 

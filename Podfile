@@ -8,7 +8,8 @@ target 'SnapBudget' do
   # Pods for SnapBudget
   
   pod 'Firebase/Core'
-  pod 'Firebase/Database'		
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'		
 
 
 end
