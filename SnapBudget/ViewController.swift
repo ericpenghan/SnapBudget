@@ -50,6 +50,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 
 
+
 //acces to the pic taken
 extension ViewController
 {
@@ -58,10 +59,27 @@ extension ViewController
     self.dismiss(animated: true, completion: nil)
     print("user canceled the camera / photo library")
   }
+  
+  
+  
+  
   //if user taken the pic
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     self.testoutputpic.image = info[.originalImage] as? UIImage
-    self.dismiss(animated: true, completion: nil)
+    
+    
+    //Use image name from bundle to create NSData
+    let image : UIImage = info[.originalImage] as! UIImage
+    //Now use image to create into NSData format
+    let strBase64:String = (image.jpegData(compressionQuality: 0.7)!).base64EncodedString(options: .lineLength64Characters)
+    
+    //let strBase64 = imageData.base64EncodedString(options: )
+    
+   
+    
+ 
+    var receiptData = callOCRSpace(apiKey: "f0d82f3f1888957", photoString: strBase64, urlNot64: false)
+    print(receiptData)
   }
 }
 
