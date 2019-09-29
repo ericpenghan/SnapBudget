@@ -91,7 +91,7 @@ extension CharacterSet {
 let _apiKey = "f0d82f3f1a88957"
 let _url = "https://raw.githubusercontent.com/JarrenTay/test/master/receipt5_0.jpg"
 
-func callOCRSpace(apiKey: String, photoUrl: String) {
+func callOCRSpace(apiKey: String, photoString: String) {
     var estimatedTotal = 0.0
     var date = ""
     var company = ""
@@ -102,24 +102,10 @@ func callOCRSpace(apiKey: String, photoUrl: String) {
     // Reference json/receipt0_0_Overlay.json for an example output of the api
     let apiUrl = URL(string: "https://api.ocr.space/parse/image")!
     var request = URLRequest(url: apiUrl)
-    /*
-    //Use image name from bundle to create NSData
-    let image : UIImage = UIImage(named:"imageNameHere")!
-    //Now use image to create into NSData format
-    let imageData:NSData = UIImagePNGRepresentation(image)!
 
-    //OR next possibility
-    */
-    //Use image's path to create NSData
-    /*
-    let url:NSURL = NSURL(string : photoUrl)!
-    //Now use image to create into NSData format
-    let imageData:NSData = NSData.init(contentsOfURL: url)!
-    let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
-    */
     let parameters: [String: Any] = [
       "isOverlayRequired": true,
-      "url": photoUrl,
+      "base64Image": photoString,
       "filetype": "jpg"
     ]
     request.httpBody = parameters.percentEscaped().data(using: .utf8)
@@ -134,7 +120,6 @@ func callOCRSpace(apiKey: String, photoUrl: String) {
         }
         // totalList describes the prices that are in the same y-position as a line that contains "total" or "balance" but not "subtotal" or "saving"
         // Prices lower on the receipt are scored higher because it's probably more likely to be the value we are interested in.
-        let str = String(decoding: data, as: UTF8.self)
         var totalList: [TotalScores] = []
         do {
             // Interpret API output
@@ -169,12 +154,10 @@ func callOCRSpace(apiKey: String, photoUrl: String) {
                         var date2 = ""
                         var date3 = ""                     
                         if lineSimp1.count >= 2 {
-                          date1 = String(lineSimp1.suffix(2))
-                          if (lineSimp.range(of: "^.*[0-9][0-9]$", options: .regularExpression, range: nil, locale: nil) == nil) {
-                            
-                            date1 = String(lineSimp1.suffix(1))
-                            
-                          }
+                            date1 = String(lineSimp1.suffix(2))
+                            if (lineSimp.range(of: "^.*[0-9][0-9]$", options: .regularExpression, range: nil, locale: nil) == nil) {
+                                date1 = String(lineSimp1.suffix(1))
+                            }
                         } else {
                           date1 = lineSimp1
                         }
@@ -201,7 +184,6 @@ func callOCRSpace(apiKey: String, photoUrl: String) {
                 }
 
             }
-           // print(totalTopList)
             // Sort lines by their verticality, high lines are earlier
             lineList = lineList.sorted(by: { $0.top < $1.top })
             var notFoundCompany = true
@@ -225,30 +207,17 @@ func callOCRSpace(apiKey: String, photoUrl: String) {
                 }
                 count = count + 1
             }
-              if(lineList[1].text == "Welcome to Best Buy #259"){
+            if (lineList[1].text == "Welcome to Best Buy #259") {
                 company = "Best Buy"       
-              }
-               else{
-                  if(lineList[1].text == "Ross"){
+            } else if (lineList[1].text == "Ross") {
                 company = "Ross"             
-              }
-              else{
-                 if(lineList[1].text == "PUMA- Outlet Shoppes at Bl uegrass"){
+            } else if (lineList[1].text == "PUMA- Outlet Shoppes at Bl uegrass") {
                 company = "PUMA"               
-              }
-              else{
-                 if(lineList[1].text == "AMERICAN EAGLE"){
+            } else if (lineList[1].text == "AMERICAN EAGLE") {
                 company = "AMERICAN EAGLE"
-              }
-              else{
-                 if(lineList[1].text == "Fresh food."){
+            } else if (lineList[1].text == "Fresh food.") {
                 company = "Kroger"
-                                                    }
-                    }
-                  }
-                }
-               }
-
+            }
 
             // Figure out the prices of each total
             for total in totalTopList {

@@ -5,7 +5,7 @@ let apiKey = "f0d82f3f1a88957"
 // There are receipt0_0.jpg to receipt5_0.jpg. receipt2_0.jpg is the asian market that does not work well.
 let url = "https://raw.githubusercontent.com/JarrenTay/test/master/receipt5_0.jpg"
 
-callOCRSpace(apiKey: apiKey, photoUrl: url)
+callOCRSpace(apiKey: apiKey, photoString: url /*Online swift does not allow us to make a base 64 image*/)
 print("hmmm")
 let seconds = 30.0
 while(true){
