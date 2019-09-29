@@ -180,7 +180,7 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
             // We remove spaces for this comparison because sometimes spaces occur in the middle of to tal and it messes us up.
             let lineSimp = line.LineText.lowercased().replacingOccurrences(of: " ", with: "")
             // subtotal and saving(total savings) are typically not what we are looking for
-            if((lineSimp.contains("total") || lineSimp.contains("balance")) && !lineSimp.contains("subtotal") && !lineSimp.contains("saving")) {
+            if((lineSimp.contains("total") || lineSimp.contains("balance") || lineSimp.contains("baiance") || lineSimp.contains("mastercard") || lineSimp.contains("visa")) && !lineSimp.contains("subtotal") && !lineSimp.contains("saving")) {
                 totalTopList.append(line.MinTop)
             }
 
@@ -264,22 +264,24 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
         }
 
         // Figure out the prices of each total
-        print(totalTopList)
         for total in totalTopList {
             for line in lineList {
-                if(abs(line.top - total) < 20) {
+                if(abs(line.top - total) < 100) {
                     if (line.text.count >= 4) {
                         // Regex that accepts -$3.00 or 2.49 or 748,00 or $2202.00 
-                        if line.text.range(of: "^-?\\$?[0-9][0-9]*(,|.)[0-9][0-9]$", options: .regularExpression, range: nil, locale: nil) != nil {
-                            var cost = line.text.replacingOccurrences(of: ",", with: ".")
+                        let lineSimp = line.text.replacingOccurrences(of: " ", with: "")
+                        if lineSimp.range(of: "^-?\\$?[0-9][0-9]*(,|\\.)[0-9][0-9]$", options: .regularExpression, range: nil, locale: nil) != nil {
+                            var cost = lineSimp.replacingOccurrences(of: ",", with: ".")
                             cost = cost.replacingOccurrences(of: "$", with: "")
-                            totalList.append(TotalScores(inScore: line.top - abs(line.top - total), inTotal: Double(cost)!))
+                            if (Double(cost) != nil) {
+                                totalList.append(TotalScores(inScore: line.top - abs(line.top - total), inTotal: Double(cost)!))
+                            } 
+                            
                         } 
                     }
                 }
             }
         }
-        print(totalList)
     } catch {
         print("error")
     }
@@ -291,7 +293,6 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
             estimatedTotal = total.total
         }
     }
-    print()
     print("Total: " + String(estimatedTotal))
     print("Date: " + date)
     print("Company: " + company)
