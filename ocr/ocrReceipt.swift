@@ -142,7 +142,8 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
     let parameters: [String: Any] = [
       "isOverlayRequired": true,
       photoType: photoString,
-      "filetype": "jpg"
+      "filetype": "jpg",
+      "detectOrientation": true
     ]
     request.httpBody = parameters.percentEscaped().data(using: .utf8)
     request.setValue(apiKey, forHTTPHeaderField: "apikey")
