@@ -22,7 +22,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     ref.child("someid/name").setValue("Mike")
   }
-
+  @IBOutlet weak var testoutputpic: UIImageView!
+  
   
   //take a photo
   @IBAction func takePic(_ sender: Any) {
@@ -45,8 +46,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     self.present(imagePicker, animated: true, completion: nil);//it will allow the user to see the camra
   }
   
+ }
 
-  
-  
-  
+
+
+//acces to the pic taken
+extension ViewController
+{
+  //if user cancel the camra
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    self.dismiss(animated: true, completion: nil)
+    print("user canceled the camera / photo library")
+  }
+  //if user taken the pic
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    self.testoutputpic.image = info[.originalImage] as? UIImage
+    self.dismiss(animated: true, completion: nil)
+  }
 }
+
+
+
+
+
