@@ -91,7 +91,7 @@ extension CharacterSet {
 let _apiKey = "f0d82f3f1a88957"
 let _url = "https://raw.githubusercontent.com/JarrenTay/test/master/receipt5_0.jpg"
 
-func callOCRSpace(apiKey: String, photoString: String) {
+func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) {
     var estimatedTotal = 0.0
     var date = ""
     var company = ""
@@ -103,15 +103,16 @@ func callOCRSpace(apiKey: String, photoString: String) {
     let apiUrl = URL(string: "https://api.ocr.space/parse/image")!
     var request = URLRequest(url: apiUrl)
 
+    let photoType = urlNot64 ? "url" : "base64Image"
+
     let parameters: [String: Any] = [
       "isOverlayRequired": true,
-      "base64Image": photoString,
+      photoType: photoString,
       "filetype": "jpg"
     ]
     request.httpBody = parameters.percentEscaped().data(using: .utf8)
     request.setValue(apiKey, forHTTPHeaderField: "apikey")
     request.httpMethod = "POST"
-    URLSession.shared.dataTask(with: request) { data, response, error in }
 
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         guard let data = data, error == nil else {
