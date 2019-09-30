@@ -251,15 +251,15 @@ func callOCRSpace(apiKey: String, photoString: String, urlNot64: Bool) -> Receip
             }
             count = count + 1
         }
-        if (lineList[0].text == "Welcome to Best Buy #259") {
+        if (lineList[count].text == "Welcome to Best Buy #259") {
             company = "Best Buy"       
-        } else if (lineList[0].text == "Ross") {
+        } else if (lineList[count].text == "Ross") {
             company = "Ross"             
-        } else if (lineList[0].text == "PUMA- Outlet Shoppes at Bl uegrass") {
+        } else if (lineList[count].text == "PUMA- Outlet Shoppes at Bl uegrass") {
             company = "PUMA"               
-        } else if (lineList[0].text == "AMERICAN EAGLE") {
+        } else if (lineList[count].text == "AMERICAN EAGLE") {
             company = "AMERICAN EAGLE"
-        } else if (lineList[0].text == "Fresh food.") {
+        } else if (lineList[count].text == "Fresh food.") {
             company = "Kroger"
         }
 
