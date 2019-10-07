@@ -1,1 +1,2 @@
 # SnapBudget
+Group Project made during hackathon. App is a receipt manager and budgeter combination, built to store receipts. Using OCR API to extract text information from a receipt and store the total amount, date, store name and a link to an image for each receipt in database for future uses. Budgeting portion of the app is still in development stage. The challenges faced were delivering our image data to API, pulling data from database, and creating the app’s interface
